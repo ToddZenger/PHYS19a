@@ -52,6 +52,12 @@ print(k) #output: 83
 #print(name + y) #output: TypeError ...
 # Notice it doesn't run the print statement with the # in front
 
+
+# How do we rectify this? 
+# We can use commas to combine them together
+print(name, y) #output: Todd 2
+
+
 print(message + name) #output: My name is Todd
 
 # Or, if there is a string we want to directly output, we can write it
