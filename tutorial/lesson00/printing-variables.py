@@ -57,6 +57,9 @@ print(k) #output: 83
 # We can use commas to combine them together
 print(name, y) #output: Todd 2
 
+# The alternative is to format the string
+print("{}{}".format(name, y)) #output: Todd2
+
 
 print(message + name) #output: My name is Todd
 
