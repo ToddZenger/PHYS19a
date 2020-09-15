@@ -48,15 +48,21 @@ std_data = np.std(data, ddof=1) #ddof is set to 1 for the sample standard deviat
 # First we tell python to open up a figure
 plt.figure()
 
-plt.grid()
+
 # Make the histogram
+# Insert the data to be plotted, describe number of bins we want,
+# then I personally use edge color (ec) as black for clarity
 n, bins, patches = plt.hist(data, bins=5, ec="black")
 
+# We need to sort the data for statistics
+sorted_data = np.sort(data)
+data_pdf = data.size*norm.pdf(sorted_data, mean_data, std_data)
+plt.plot(sorted_data, data_pdf, 'r--')
 # Now add labels for a presentable chart
 
 plt.xlabel("Data Points")
 plt.ylabel("Frequency")
-plt.title("Histogram of Random Data")
+plt.title(r"Histogram of Random Data, $\mu={:0.2f}$, $\sigma={:0.2f}$".format(mean_data, std_data))
 
 # Now tell python to show this plot
 plt.show()
@@ -68,14 +74,15 @@ print(std_data)
 
 #plt.savefig("firsthisto.png")
 
-# Now what if we want a Gaussian fit?
-# We will copy and paste, but notice there are changes at the histogram 
-# options and added a pdf below it
+"""
+Below is optional. Instead, it uses a normalized distribution to represent
+the samples
+"""
 
 # First we tell python to open up a figure
 plt.figure()
 
-plt.grid()
+
 # Make the histogram
 n, bins, patches = plt.hist(data, bins=5, density=True, ec="black")
 
