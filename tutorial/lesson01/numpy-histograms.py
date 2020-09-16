@@ -30,9 +30,27 @@ sinx = np.sin(x) # numpy uses radians
 print("sin(x) is:")
 print(sinx)
 
-np.random.seed(900835)
+#Now, if we want to go two-dimensional with arrays, we make it an array of arrays
+y = np.array([[2,4],[8,9],[0,3]]) #This makes a 3 rows and 2 column array (3x2)
+# We index by using a comma to index
+print("The second row and first element is:")
+print(y[1,0])
+
+# We can make a column array as well
+c = np.array([[1],[2],[3],[4]])
+print("A four elemnt column array is:")
+print(c)
+
+"""
+~~~Plotting a Histogram~~~
+"""
 
 # Now, let's turn our attention to plotting a histogram
+
+# Here I am fixing the random data set
+# Generating random data will pull from this set specified
+np.random.seed(900835)
+
 
 # First, let's generate some random data
 # See documentation online for this, but loc is the mean,
@@ -56,8 +74,12 @@ n, bins, patches = plt.hist(data, bins=5, ec="black")
 
 # We need to sort the data for statistics
 sorted_data = np.sort(data)
+
+# Now we plot the fitted function
+# We plot the distribution function multiplied by the number of data points we have
 data_pdf = data.size*norm.pdf(sorted_data, mean_data, std_data)
 plt.plot(sorted_data, data_pdf, 'r--')
+
 # Now add labels for a presentable chart
 
 plt.xlabel("Data Points")
