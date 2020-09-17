@@ -77,8 +77,8 @@ sorted_data = np.sort(data)
 
 # Now we plot the fitted function
 # We plot the distribution function multiplied by the number of data points we have
-data_pdf = data.size*norm.pdf(sorted_data, mean_data, std_data)
-plt.plot(sorted_data, data_pdf, 'r--')
+data_pdf = data.size*norm.pdf(bins, mean_data, std_data)
+plt.plot(bins, data_pdf, 'r--')
 
 # Now add labels for a presentable chart
 
@@ -112,8 +112,8 @@ n, bins, patches = plt.hist(data, bins=5, density=True, ec="black")
 sorted_data = np.sort(data)
 
 # Add a fit to the histogram
-data_pdf = norm.pdf(sorted_data, mean_data, std_data)
-plt.plot(sorted_data, data_pdf, 'r--')
+data_pdf = norm.pdf(bins, mean_data, std_data)
+plt.plot(bins, data_pdf, 'r--')
 
 # Now add labels for a presentable chart
 
