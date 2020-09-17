@@ -77,7 +77,9 @@ sorted_data = np.sort(data)
 
 # Now we plot the fitted function
 # We plot the distribution function multiplied by the number of data points we have
-data_pdf = data.size*norm.pdf(bins, mean_data, std_data)
+# The coefficient in front of pdf is basically:
+# coeff = (bin size)*(number of data points)
+data_pdf = (bins[1]-bins[0])*data.size*norm.pdf(bins, mean_data, std_data)
 plt.plot(bins, data_pdf, 'r--')
 
 # Now add labels for a presentable chart
